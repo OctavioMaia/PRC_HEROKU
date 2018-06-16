@@ -1,0 +1,110 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='../../assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='../../assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') Coin
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 #{coinname}
+          div(class="w3-container")
+            div(class="col-sm-3")
+              img(src=logo,class="img-fluid",width="auto",height="200px")
+          br
+          p
+            | <b>Website:</b> 
+            a(href=url,target="_blank") LINK
+            if creator!=''
+              br
+              | <b>Creator:</b> #{creator}
+            if founded!=''
+              br
+              | <b>Founded:</b> #{founded}
+            if alg!=''
+              br
+              | <b>Algorithm:</b> #{alg}
+            if type!=''
+              br
+              | <b>Protection Scheme:</b>
+              a(href='/posvspow') #{type} 
+            if breward!=''
+              br
+              | <b>Block Reward:</b> #{breward} 
+            if btime!=''
+              br
+              | <b>Block Time:</b> #{btime} 
+            if csupply!=''
+              br
+              | <b>Current Supply:</b> #{csupply} 
+            if maxsupply!=''
+              br
+              | <b>Max Supply:</b> #{maxsupply} 
+            if icoammount!=''
+              br
+              | <b>Amount sold in ICO:</b> #{icoammount}
+            if preamount!=''
+              br
+              | <b>Amount of pre-mined coins:</b> #{preamount} 
+            if netdif!=''
+              br
+              | <b>Network difficulty:</b> #{netdif}
+            if nethash!=''
+              br
+              | <b>Network hashrate:</b> #{nethash} 
+            if price!=''
+              br
+              | <b>Current price:</b> #{price} 
+            if whitepaper!=''
+              br
+              | <b>Whitepaper:</b> 
+              a(href=whitepaper,target="_blank") LINK
+          if about!=''
+            small_text #{about} 
+        a.more.scrolly(href='#one') Learn More
+      section#one.wrapper.special
+        ul.actions.stacked
+          li
+            a.button.fit.primary(onclick='history.back(-1)') Go back.
+        .inner
+          script(src='/javascripts/jquery-3.3.1.min.js')
+          script(src='https://d3js.org/d3.v5.min.js')
+          script(src='https://unpkg.com/viz.js@1.8.0/viz.js' type='javascript/worker')
+          script(src='https://unpkg.com/d3-graphviz@1.4.0/build/d3-graphviz.min.js')
+          div
+            div(id='graph')
+              script!= renderingCode
+    // Scripts
+    script(src='../../assets/js/jquery.min.js')
+    script(src='../../assets/js/jquery.scrollex.min.js')
+    script(src='../../assets/js/jquery.scrolly.min.js')
+    script(src='../../assets/js/browser.min.js')
+    script(src='../../assets/js/breakpoints.min.js')
+    script(src='../../assets/js/util.js')
+    script(src='../../assets/js/main.js')

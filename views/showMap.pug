@@ -1,0 +1,58 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='./assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='./assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') Explorer
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 SPARQL Explorer
+          p
+            | Explore this dataset
+            br
+            | with the help of SPARQL.
+        a.more.scrolly(href='#one') Learn More
+      section#one.wrapper.special
+        .inner
+          script(src='/javascripts/jquery-3.3.1.min.js')
+          script(src='https://d3js.org/d3.v5.min.js')
+          script(src='https://unpkg.com/viz.js@1.8.0/viz.js' type='javascript/worker')
+          script(src='https://unpkg.com/d3-graphviz@1.4.0/build/d3-graphviz.min.js')
+          div
+            div(id='graph')
+              script!= renderingCode
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')

@@ -1,0 +1,141 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='./assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='./assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') Cryptonav
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 CryptoNav
+          p
+            | A cryptocurrency and blockchain explorer
+            br
+            | 							based in NodeJS and GraphDB.
+            br
+            | 							created by Octávio Maia.
+        a.more.scrolly(href='#one') Learn More
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | What is a cryptocurrency?
+            p
+              | A cryptocurrency is digital asset designed to work as a medium of exchange that uses strong cryptography to secure financial transactions, control the creation of additional units, and verify the transfer of assets.
+              br
+              | Cryptocurrencies use decentralized control as opposed to centralized electronic money and central banking systems.
+              br
+              | The decentralized control of each cryptocurrency works through distributed ledger technology, typically a blockchain, that serves as a public financial transaction database.
+          ul.icons.major
+            li
+              span.icon.fa-user-secret.major
+              p
+                br
+                span.label Private
+            li
+              span.icon.fa-lock.major
+              p
+                br
+                span.label Secure
+            li
+              span.icon.fa-code.major
+              p
+                br
+                span.label Open-source
+      section#two.wrapper.alt
+        section.spotlight
+          .image
+            img(src='images/crypto.jpg',class="img-fluid")
+          .content
+            h2
+              | Bitcoin as a staple
+            p
+              | Bitcoin or BTC for short, can be considered the pioneer of cryptocurrencies.
+              br
+              | Due to this belief of the community, all other coins are refered to as "alt-coins".
+        section.spotlight
+          .image
+            img(src='images/blockchain2.jpg' ,class="img-fluid")
+          .content
+            h2
+              | The launch of Bitcoin
+            p
+              | Appearing in 2008, with a whitepaper being released in 31 of October of that year, it is considered by most to be the first fully functional cryptocurrency, being based on the blockchain tecnology.
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | What is the blockchain?
+            p
+              | A blockchain is a digitized, decentralized, public ledger of all cryptocurrency transactions. 
+              br
+              | Constantly growing as ‘completed’ blocks (the most recent transactions) are recorded and added to it in chronological order, it allows market participants to keep track of digital currency transactions without central recordkeeping. 
+              br
+              | Each node (a computer connected to the network) gets a copy of the blockchain, which is downloaded automatically.
+          ul.icons.major
+            li
+              span.icon.fa-globe.major
+              p
+                br
+                span.label Public
+            li
+              span.icon.fa-users.major
+              p
+                br
+                span.label Distributed
+            li
+              span.icon.fa-copy.major
+              p
+                br
+                span.label Immutable
+            blockquote
+              p
+                | “The blockchain is an incorruptible digital ledger of economic transactions that can be programmed to record not just financial transactions but virtually everything of value.”
+              p
+                | Don & Alex Tapscott, authors Blockchain Revolution (2016)
+      // CTA
+      section#cta.wrapper
+        .inner
+          header
+            h2 Explore the blockchain
+            p
+              | Thanks to GraphDB you can easily explore the various cryptocurrencies currently present in this dataset.
+          ul.actions.stacked
+            li
+              a.button.fit.primary(href='#') Go back.
+            li
+              a.button.fit(href='/nav') Explore.
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')

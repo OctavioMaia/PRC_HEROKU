@@ -1,0 +1,94 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='./assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='./assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') POW vs POS
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 Proof-of-work VS Proof-of-stake
+          p
+            | How do coins get mined/minted?
+          p
+            | And how do users get rewarded?
+        a.more.scrolly(href='#one') Learn More
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | Proof-of-work
+            section#one.wrapper.special
+              .image
+                img(src='images/pow.png' ,class="img-fluid")
+            p
+              | Proof of Work (PoW) as the name states is the validation of the work that happened and proving it is correct. 
+              br
+              | Bitcoin and many alt coins follow this way of consensus to make sure the authenticity of the chain is good.
+              p
+              | To understand how it works in simple terms, assume that you are in a math exam along with other students in a classroom.
+              br
+              | The student who can, not only come up with the correct answer but also can come up with the complete proof (steps in math terms) of arriving at the correct answer first gets the reward.
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | Proof-of-stake
+            section#one.wrapper.special
+              .image
+                img(src='images/pos.png' ,class="img-fluid")
+            p
+              | Proof of stake (PoS) is a type of algorithm by which a cryptocurrency blockchain network aims to achieve distributed consensus.
+            p
+              | In PoS-based cryptocurrencies, the creator of the next block is chosen via various combinations of random selection and wealth or age (i.e., the stake).
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | A brief video sumarizing it all
+            div(class="embed-responsive embed-responsive-16by9")
+              iframe(width="854" height="480" src="https://www.youtube.com/embed/M3EFi_POhps" frameborder="0" allowfullscreen)
+      section#one.wrapper.special
+        h2 POW and POS coins
+        .inner
+          script(src='/javascripts/jquery-3.3.1.min.js')
+          script(src='https://d3js.org/d3.v5.min.js')
+          script(src='https://unpkg.com/viz.js@1.8.0/viz.js' type='javascript/worker')
+          script(src='https://unpkg.com/d3-graphviz@1.4.0/build/d3-graphviz.min.js')
+          div
+            div(id='graph')
+              script!= renderingCode
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')

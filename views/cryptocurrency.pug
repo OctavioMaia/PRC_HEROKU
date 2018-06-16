@@ -1,0 +1,101 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='./assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='./assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') Cryptocurrency 101
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 Cryptocurrency
+          p
+            | What is a cryptocurrency?
+          p
+            | And how did cryptocurrencies emerge as
+            br
+            | a side product of digital cash?
+        a.more.scrolly(href='#one') Learn More
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2 Origin
+            p
+              | Few people know, but cryptocurrencies emerged as a side product of another invention. 
+              br
+              | Satoshi Nakamoto, the unknown inventor of Bitcoin, the first and still most important cryptocurrency, never intended to invent a currency.
+              br
+              | In his announcement of Bitcoin in late 2008, Satoshi said he developed “A Peer-to-Peer Electronic Cash System.“  
+              br
+              | The single most important part of Satoshi‘s invention was that he found a way to build a decentralized digital cash system. In the 90's, there have been many attempts to create digital money, but they all failed.
+            p
+              blockquote
+                | Announcing the first release of Bitcoin, a new electronic cash system that uses a peer-to-peer network to prevent double-spending. It’s completely decentralized with no server or central authority. 
+                br
+                | – Satoshi Nakamoto, 09 January 2009, announcing Bitcoin on SourceForge.
+            p
+              | After seeing all the centralized attempts fail, Satoshi tried to build a digital cash system without a central entity. Like a Peer-to-Peer network for file sharing.
+          ul.icons.major
+            li
+              span.icon.fa-bitcoin.major
+              p
+                br
+                span.label Bitcoin is born.
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2 Implementation
+            p
+              |This decision became the birth of cryptocurrency. They are the missing piece Satoshi found to realize digital cash. The reason why is a bit technical and complex, but if you get it, you‘ll know more about cryptocurrencies than most people do. So, let‘s try to make it as easy as possible:
+            p
+              |To realize digital cash you need a payment network with accounts, balances, and transaction. That‘s easy to understand. One major problem every payment network has to solve is to prevent the so-called double spending: to prevent that one entity spends the same amount twice. Usually, this is done by a central server who keeps record about the balances.
+            p
+              |In a decentralized network, you don‘t have this server. So you need every single entity of the network to do this job. Every peer in the network needs to have a list with all transactions to check if future transactions are valid or an attempt to double spend.
+            p
+              |But how can these entities keep a consensus about this records? 
+          ul.icons.major
+            li
+              span.icon.fa-link.major
+              p
+                br
+                a(href='/blockchain') Welcome the blockchain.
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | A brief video sumarizing it all
+            div(class="embed-responsive embed-responsive-16by9")
+              iframe(width="854" height="480" src="https://www.youtube.com/embed/kubGCSj5y3k" frameborder="0" allowfullscreen)
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')

@@ -1,0 +1,51 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='../../assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='../../assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') Algorithm
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 #{algorithm}
+          br
+          if about!=''
+            h4 #{about} 
+          p
+          ul.actions.stacked
+            li
+              a.button.fit.primary(onclick='history.back(-1)') Go back.
+    // Scripts
+    script(src='../../assets/js/jquery.min.js')
+    script(src='../../assets/js/jquery.scrollex.min.js')
+    script(src='../../assets/js/jquery.scrolly.min.js')
+    script(src='../../assets/js/browser.min.js')
+    script(src='../../assets/js/breakpoints.min.js')
+    script(src='../../assets/js/util.js')
+    script(src='../../assets/js/main.js')

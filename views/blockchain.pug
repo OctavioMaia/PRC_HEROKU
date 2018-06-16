@@ -1,0 +1,96 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='./assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='./assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') Blockchain 101
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 The blockchain technology
+          p
+            | What is 'the' blockchain?
+          p
+            | And how did it get created?
+        a.more.scrolly(href='#one') Learn More
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | Firstly, what is the blockchain?
+            p
+              | Currently, most people use a trusted middleman such as a bank to make a transaction.
+              br 
+              | But blockchain allows consumers and suppliers to connect directly, removing the need for a third party.
+            p
+              | Using cryptography to keep exchanges secure, blockchain provides a decentralized database, or “digital ledger”, of transactions that everyone on the network can see.
+              br
+              | This network is essentially a chain of computers that must all approve an exchange before it can be verified and recorded.
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | Why is it so revolutionary?
+            p
+              | The technology can work for almost every type of transaction involving value, including money, goods and property.
+              br 
+              | Its potential uses are almost limitless: from collecting taxes to enabling migrants to send money back to family in countries where banking is difficult.
+            p
+              | Blockchain could also help to reduce fraud because every transaction would be recorded and distributed on a public ledger for anyone to see.
+      section#one.wrapper.style5.special
+        .image
+            img(src='images/howitworks.png' ,class="img-fluid")
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | Who is using it?
+            p
+              | In theory, if blockchain goes mainstream, anyone with access to the internet would be able to use it to make transactions.
+            p
+              | Currently only a very small proportion of global GDP (around 0.025%, or $20 billion) is held in the blockchain, according to a survey by the World Economic Forum’s Global Agenda Council.
+            p 
+              | But the Forum’s research suggests this will increase significantly in the next decade, as banks, insurers and tech firms see the technology as a way to speed up settlements and cut costs.
+        .image
+            img(src='images/banks.JPG' ,class="img-fluid")
+      section#one.wrapper.special
+        .inner
+          header.major
+            h2
+              | A brief video sumarizing it all
+            div(class="embed-responsive embed-responsive-16by9")
+              iframe(width="854" height="480" src="https://www.youtube.com/embed/SSo_EIwHSd4" frameborder="0" allowfullscreen)
+              // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')
