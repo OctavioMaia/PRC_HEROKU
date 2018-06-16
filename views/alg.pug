@@ -1,0 +1,119 @@
+html
+  head
+    title CryptoNav
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    link(rel='stylesheet', href='./assets/css/main.css')
+    noscript
+      link(rel='stylesheet', href='./assets/css/noscript.css')
+  body.landing.is-preload
+    // Page Wrapper
+    #page-wrapper
+      // Header
+      header#header.alt
+        h1
+          a(href='') Hashing Algorithm
+        nav#nav
+          ul
+            li.special
+              a.menuToggle(href='#menu')
+                span Menu
+              #menu
+                ul
+                  li
+                    a(href='/') Home
+                  li
+                    a(href='/cryptocurrency') Cryptocurrency 101
+                  li
+                    a(href='/blockchain') Blockhain 101
+                  li
+                    a(href='/posvspow') POW vs POS
+                  li
+                    a(href='/alg') Hashing algorithms
+                  li
+                    a(href='/nav') SPARQL Explorer
+      // Banner
+      section#banner
+        .inner
+          h2 Hashing Algorithm
+          p
+            | What hashing algorithms are there?
+          p
+            | How do they differ from one another?
+        a.more.scrolly(href='#one') Learn More
+      section#two.wrapper.alt
+        section.spotlight
+          .content
+            p
+              | SHA stand for “Secure hash Algorithm” (SHA-256) generates unique 256-bit (32-byte) signature for a text string. 
+              br
+              | Block processing time for SHA-256 generally ranges from six to ten minutes.
+          .content
+            h2
+              | SHA-256
+        section.spotlight
+          .content
+            p
+              | Algorithm created by Vitalik Buterin, it was meant to be an alternative to existing memory-hard algorithms like Scrypt, which are memory-hard but are also very hard to verify when their memory-hardness is increased to genuinely secure levels.
+          .content
+            h2
+              | Ethash
+        section.spotlight
+          .content
+            p
+              | Equihash is a memory-oriented Proof-of-Work algorithm developed by the University of Luxembourg's Interdisciplinary Centre for Security, Reliability and Trust (SnT).
+          .content
+            h2
+              | Equihash
+        section.spotlight
+          .content
+            p
+              | Scrypt algorithm requires large amounts of memory and there was a need design it to perform large-scale custom hardware attacks. 
+            p
+              | The Scrypt algorithm is more simple and quicker than the SHA-256 algorithm.
+          .content
+            h2
+              | Scrypt
+        section.spotlight
+          .content
+            p
+              | X11 uses a sequence of eleven scientific hashing algorithms for the proof-of-work. 
+            p
+              | One of the bigest benefit of using X11 algorithm is the energy efficiency, GPUs require approximately 30% less wattage and run 30-50% cooler than they do with Scrypt.
+          .content
+            h2
+              | X11
+        section.spotlight
+          .content
+            p
+              | The Cryptonight algorithm was designed to be suitable for PC CPUs, it was implemented in an open sourced protocol which allows to increase privacy in cryptocurrency transactions – “CryptoNote”.
+            p
+              | Unlike the Scrypt algorithm the Cryptonight algorithm depends on all the previous blocks for each new block.
+          .content
+            h2
+              | CN, CN-Heavy, CN-Lite
+        section.spotlight
+          .content
+            p
+              | The X16R hashing algorithm consists of 16 hashing algorithms operating in chain fashion with the ordering dependent on the last 8 bytes (16 nibbles) of the hash of the previous block.
+          .content
+            h2
+              | X16R
+      section#one.wrapper.special
+        h2 Algorithms present in this dataset
+        .inner
+          script(src='/javascripts/jquery-3.3.1.min.js')
+          script(src='https://d3js.org/d3.v5.min.js')
+          script(src='https://unpkg.com/viz.js@1.8.0/viz.js' type='javascript/worker')
+          script(src='https://unpkg.com/d3-graphviz@1.4.0/build/d3-graphviz.min.js')
+          div
+            div(id='graph')
+              script!= renderingCode
+    // Scripts
+    script(src='assets/js/jquery.min.js')
+    script(src='assets/js/jquery.scrollex.min.js')
+    script(src='assets/js/jquery.scrolly.min.js')
+    script(src='assets/js/browser.min.js')
+    script(src='assets/js/breakpoints.min.js')
+    script(src='assets/js/util.js')
+    script(src='assets/js/main.js')

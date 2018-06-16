@@ -12,11 +12,11 @@ client.register({rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', oacc: 'http
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var query = "select ?tag ?pow ?pos where{\n" +
+    var query = "select ?tag ?alg_name where{\n" +
                     "?s a oacc:Cryptocurrency.\n" +
                     "?s oacc:tag ?tag.\n"+
-                    "OPTIONAL{?s oacc:isPOW ?pow.}\n"+
-                    "OPTIONAL{?s oacc:isPOS ?pos.}\n"+
+                    "OPTIONAL{?s oacc:usingAlgorithm ?alg.\n"+
+                             "?alg oacc:name ?alg_name.}\n"+
                 "}"
 
     client.query(query)
@@ -24,31 +24,30 @@ router.get('/', function(req, res, next) {
             .then(function(qres){
                 //console.log(JSON.stringify(qres))
                 var resList = qres.results.bindings
-                //console.log(resList)
                 var dot = "digraph Cryptocurrencies {\n" +
                           'graph [layout=circo,bgcolor=transparent]'+
-                          'POW [shape = circle,style = filled,color = steelblue,fontname = Helvetica]'+
-                          'POS [shape = circle,style = filled,color = steelblue,fontname = Helvetica]'+
                           'rankdir=LR;'
 
                 for(var i in resList){
                     var coin_name = resList[i].tag.value
-                    if(resList[i].pow!=undefined){
-                        var did = coin_name.slice(coin_name.indexOf('#')+1)
-                        var url = "/nav/coin/" + did
-
-                        dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = paleturquoise,label="' + did + '",href="' + url + '"];\n'
-                        dot += 'POW -> d' + i + ' [arrowhead=vee,color=white];\n'
+                    if(resList[i].alg_name!=undefined){
+                        if(resList[i].alg_name.value=='Blake (14r)')
+                            var alg_name = 'Blake14R'
+                        else
+                            var alg_name = resList[i].alg_name.value.replace(/-/g,'')
                     }else{
-                        var did = coin_name.slice(coin_name.indexOf('#')+1)
-                        var url = "/nav/coin/" + did
-
-                        dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = paleturquoise,label="' + did + '",href="' + url + '"];\n'
-                        dot += 'POS -> d' + i + ' [arrowhead=vee,color=white];\n'
+                        var alg_name = 'None'
                     }
+                    
+                    dot+=alg_name+' [shape = circle,style = filled,color = steelblue,fontname = Helvetica]'
+                    var did = coin_name.slice(coin_name.indexOf('#')+1)
+                    var url = "/nav/coin/" + did
+
+                    dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = paleturquoise,label="' + did + '",href="' + url + '"];\n'
+                    dot += alg_name + ' -> d' + i + ' [arrowhead=vee,color=white];\n'
                 }
-                    dot += "}"      
-                res.render("posvspow", {renderingCode: 'd3.select("#graph").graphviz().renderDot(\`' + dot + '\`)'})
+                dot += "}"
+                res.render("alg", {renderingCode: 'd3.select("#graph").graphviz().renderDot(\`' + dot + '\`)'})
             })
             .catch((error)=>{
                 res.render("error", {error:error})
