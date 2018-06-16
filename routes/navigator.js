@@ -25,15 +25,15 @@ router.get('/', function(req, res, next) {
                 //console.log(resList)
                 var dot = "digraph Cryptocurrencies {\n" +
                           'graph [layout=circo,bgcolor=transparent]'+
-                          'Cryptocurrency [shape = doublecircle,style = filled,color = red,fontname = Helvetica]'+
+                          'Cryptocurrency [shape = circle,style = filled,color = red,fontname = Helvetica]'+
                           'rankdir=LR;'
 
                 for(var i in resList){
                     var coin_name = resList[i].coin.value
                     var did = coin_name.slice(coin_name.indexOf('#')+1)
-                    var url = "http://cryptonav.herokuapp.com/nav/coin/" + did
+                    var url = "/nav/coin/" + did
 
-                    dot += 'd' + i + '[fontname = Helvetica,shape = circle,style = filled,color = orange,label="' + did + '",href="' + url + '"];\n'
+                    dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = orange,label="' + did + '",href="' + url + '"];\n'
                     dot += 'Cryptocurrency -> d' + i + ' [arrowhead=vee,color=white];\n'
                 }
                     dot += "}"      
@@ -87,7 +87,7 @@ router.get('/coin/:did', (req, res, next)=>{
             var dot = "digraph Coin {\n" +
                         'graph [layout=circo,bgcolor=transparent]'+
                         'rankdir=TB;\n' +
-                        'CC [style=filled,color="dodgerblue",shape=doublecircle,label="Cryptocurrency",href="http://localhost:3000/nav"];\n' +
+                        'CC [style=filled,color="dodgerblue",shape=doublecircle,label="Cryptocurrency",href="/nav"];\n' +
                         'CC -> name [arrowhead=vee,color=white];\n' +
                         'name [shape = circle,style = filled,color = red,fontname = Helvetica,label=' + completename + '];\n'
             if(resList[0].pos != undefined){
@@ -96,7 +96,7 @@ router.get('/coin/:did', (req, res, next)=>{
                     'name -> pos [arrowhead=vee,color=white];\n' +
                     'pos [fontname = Helvetica,shape = circle,style = filled,color = orange,label="Protection Scheme"];\n' +
                     'pos -> c1 [arrowhead=vee,color=white];\n'+
-                    'c1 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label="POS",href="http://localhost:3000/posvspow"]'
+                    'c1 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label="POS",href="/posvspow"]'
             }
             if(resList[0].pow != undefined){
                 type = "Proof-of-work"
@@ -104,7 +104,7 @@ router.get('/coin/:did', (req, res, next)=>{
                     'name -> pow [arrowhead=vee,color=white];\n' +
                     'pow [fontname = Helvetica,shape = circle,style = filled,color = orange,label="Protection Scheme"];\n' +
                     'pow -> c1 [arrowhead=vee,color=white];\n'+
-                    'c1 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label="POW",href="http://localhost:3000/posvspow"]'
+                    'c1 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label="POW",href="/posvspow"]'
             }
             if(resList[0].algorithm != undefined && resList[0].algorithm != ''){
                 algorithm = resList[0].algorithm.value
@@ -112,7 +112,7 @@ router.get('/coin/:did', (req, res, next)=>{
                     'name -> algorithm [arrowhead=vee,color=white];\n' +
                     'algorithm [fontname = Helvetica,shape = circle,style = filled,color = orange,label="Algorithm"];\n' +
                     'algorithm -> c14 [arrowhead=vee,color=white];\n'+
-                    'c14 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label=\"'+ algorithm + '\",href="http://localhost:3000/nav/alg/' + did +'\"];\n'
+                    'c14 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label=\"'+ algorithm + '\",href="/nav/alg/' + did +'\"];\n'
             }
             if(resList[0].creator != undefined){
                 creator = resList[0].creator.value
@@ -120,7 +120,7 @@ router.get('/coin/:did', (req, res, next)=>{
                     'name -> creator [arrowhead=vee,color=white];\n' +
                     'creator [fontname = Helvetica,shape = circle,style = filled,color = orange,label="Creator"];\n' +
                     'creator -> c2 [arrowhead=vee,color=white];\n'+
-                    'c2 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label=\"'+ creator + '\",href="http://localhost:3000/nav/creator/' + did +'\"];\n'
+                    'c2 [shape = doublecircle,style = filled,color = green,fontname = Helvetica,label=\"'+ creator + '\",href="/nav/creator/' + did +'\"];\n'
             }   
             if(resList[0].founded != undefined){
                 founded = resList[0].founded.value

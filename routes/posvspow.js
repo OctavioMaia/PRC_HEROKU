@@ -35,13 +35,13 @@ router.get('/', function(req, res, next) {
                     var coin_name = resList[i].tag.value
                     if(resList[i].pow!=undefined){
                         var did = coin_name.slice(coin_name.indexOf('#')+1)
-                        var url = "http://cryptonav.herokuapp.com/nav/coin/" + did
+                        var url = "/nav/coin/" + did
 
                         dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = orange,label="' + did + '",href="' + url + '"];\n'
                         dot += 'POW -> d' + i + ' [arrowhead=vee,color=white];\n'
                     }else{
                         var did = coin_name.slice(coin_name.indexOf('#')+1)
-                        var url = "http://cryptonav.herokuapp.com/nav/coin/" + did
+                        var url = "/nav/coin/" + did
 
                         dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = orange,label="' + did + '",href="' + url + '"];\n'
                         dot += 'POS -> d' + i + ' [arrowhead=vee,color=white];\n'
