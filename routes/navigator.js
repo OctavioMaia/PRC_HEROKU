@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
                 for(var i in resList){
                     var coin_name = resList[i].coin.value
                     var did = coin_name.slice(coin_name.indexOf('#')+1)
-                    var url = "http://localhost:3000/nav/coin/" + did
+                    var url = "http://cryptonav.herokuapp.com/nav/coin/" + did
 
                     dot += 'd' + i + '[fontname = Helvetica,shape = circle,style = filled,color = orange,label="' + did + '",href="' + url + '"];\n'
                     dot += 'Cryptocurrency -> d' + i + ' [arrowhead=vee,color=white];\n'
