@@ -3,8 +3,8 @@ var router = express.Router();
 
 const SparqlClient = require('sparql-client-2')
 const SPARQL = SparqlClient.SPARQL
-const endpoint = 'http://localhost:7200/repositories/OACC'
-const myupdateEndpoint = 'http://localhost:7200/repositories/OACC/statements'
+const endpoint = 'https://rdf.ontotext.com/4139496814/Cryptonav/repositories/oacc'
+const myupdateEndpoint = 'https://rdf.ontotext.com/4139496814/Cryptonav/repositories/oacc/statements'
 
 var client = new SparqlClient( endpoint, {updateEndpoint: myupdateEndpoint, defaultParameters: {format: 'json'}})
 
