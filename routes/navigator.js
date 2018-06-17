@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
                     var url = "/nav/coin/" + did
 
                     dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = paleturquoise,label="' + did + '",href="' + url + '"];\n'
-                    dot += 'Cryptocurrency -> d' + i + ' [arrowhead=vee,color=white];\n'
+                    dot += 'Cryptocurrency -> d' + i + ' [penwidth=3,arrowhead=vee,color=white];\n'
                 }
                     dot += "}"      
                 res.render("showMap", {renderingCode: 'd3.select("#graph").graphviz().renderDot(\`' + dot + '\`)'})
@@ -87,47 +87,45 @@ router.get('/coin/:did', (req, res, next)=>{
             var dot = "digraph Coin {\n" +
                         'graph [layout=circo,bgcolor=transparent]'+
                         'rankdir=TB;\n' +
-                        'CC [style=filled,color="steelblue",shape=doublecircle,label="Cryptocurrency",href="/nav"];\n' +
-                        'CC -> name [arrowhead=vee,color=white];\n' +
-                        'name [shape = circle,style = filled,color = paleturquoise,fontname = Helvetica,label="' + completename + '"];\n'
+                        'name [shape = circle,style = filled,color = steelblue,fontname = Helvetica,label="' + completename + '"];\n'
             if(resList[0].pos != undefined){
                 type = "Proof-of-stake"
                 dot+= 
-                    'name -> pos [arrowhead=vee,color=white];\n' +
+                    'name -> pos [penwidth=3,arrowhead=vee,color=white];\n' +
                     'pos [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Protection Scheme"];\n' +
-                    'pos -> c1 [arrowhead=vee,color=white];\n'+
+                    'pos -> c1 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c1 [shape = doublecircle,style = filled,color = lightcyan,fontname = Helvetica,label="POS",href="/posvspow"]'
             }
             if(resList[0].pow != undefined){
                 type = "Proof-of-work"
                 dot+= 
-                    'name -> pow [arrowhead=vee,color=white];\n' +
+                    'name -> pow [penwidth=3,arrowhead=vee,color=white];\n' +
                     'pow [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Protection Scheme"];\n' +
-                    'pow -> c1 [arrowhead=vee,color=white];\n'+
+                    'pow -> c1 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c1 [shape = doublecircle,style = filled,color = lightcyan,fontname = Helvetica,label="POW",href="/posvspow"]'
             }
             if(resList[0].algorithm != undefined && resList[0].algorithm != ''){
                 algorithm = resList[0].algorithm.value
                 dot+= 
-                    'name -> algorithm [arrowhead=vee,color=white];\n' +
+                    'name -> algorithm [penwidth=3,arrowhead=vee,color=white];\n' +
                     'algorithm [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Algorithm"];\n' +
-                    'algorithm -> c14 [arrowhead=vee,color=white];\n'+
+                    'algorithm -> c14 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c14 [shape = doublecircle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ algorithm + '\",href="/nav/alg/' + did +'\"];\n'
             }
             if(resList[0].creator != undefined){
                 creator = resList[0].creator.value
                 dot+= 
-                    'name -> creator [arrowhead=vee,color=white];\n' +
+                    'name -> creator [penwidth=3,arrowhead=vee,color=white];\n' +
                     'creator [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Creator"];\n' +
-                    'creator -> c2 [arrowhead=vee,color=white];\n'+
+                    'creator -> c2 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c2 [shape = doublecircle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ creator + '\",href="/nav/creator/' + did +'\"];\n'
             }   
             if(resList[0].founded != undefined){
                 founded = resList[0].founded.value
                 dot+= 
-                    'name -> founded [arrowhead=vee,color=white];\n' +
+                    'name -> founded [penwidth=3,arrowhead=vee,color=white];\n' +
                     'founded [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Foundation date"];\n' +
-                    'founded -> c3 [arrowhead=vee,color=white];\n'+
+                    'founded -> c3 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c3 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ founded + '\"];\n'
             }
             if(resList[0].about != undefined){
@@ -141,73 +139,73 @@ router.get('/coin/:did', (req, res, next)=>{
             if(resList[0].breward != undefined){
                 breward = resList[0].breward.value
                 dot+= 
-                    'name -> breward [arrowhead=vee,color=white];\n' +
+                    'name -> breward [penwidth=3,arrowhead=vee,color=white];\n' +
                     'breward [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Block Reward"];\n' +
-                    'breward -> c4 [arrowhead=vee,color=white];\n'+
+                    'breward -> c4 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c4 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ breward + '\"];\n'
             }
             if(resList[0].btime != undefined){
                 btime = resList[0].btime.value
                 dot+= 
-                    'name -> btime [arrowhead=vee,color=white];\n' +
+                    'name -> btime [penwidth=3,arrowhead=vee,color=white];\n' +
                     'btime [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Block Time"];\n' +
-                    'btime -> c5 [arrowhead=vee,color=white];\n'+
+                    'btime -> c5 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c5 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ btime + '\"];\n'
             }
             if(resList[0].csupply != undefined){
                 csupply = resList[0].csupply.value
                 dot+= 
-                    'name -> csupply [arrowhead=vee,color=white];\n' +
+                    'name -> csupply [penwidth=3,arrowhead=vee,color=white];\n' +
                     'csupply [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Current supply"];\n' +
-                    'csupply -> c6 [arrowhead=vee,color=white];\n'+
+                    'csupply -> c6 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c6 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ csupply + '\"];\n'
             }
             if(resList[0].maxsupply != undefined){
                 maxsupply = resList[0].maxsupply.value
                 dot+= 
-                    'name -> maxsupply [arrowhead=vee,color=white];\n' +
+                    'name -> maxsupply [penwidth=3,arrowhead=vee,color=white];\n' +
                     'maxsupply [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Maximum supply"];\n' +
-                    'maxsupply -> c7 [arrowhead=vee,color=white];\n'+
+                    'maxsupply -> c7 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c7 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label= \"'+ maxsupply + '\"];\n'
             }
             if(resList[0].icoammount != undefined){
                 icoammount = resList[0].icoammount.value
                 dot+= 
-                    'name -> icoammount [arrowhead=vee,color=white];\n' +
+                    'name -> icoammount [penwidth=3,arrowhead=vee,color=white];\n' +
                     'icoammount [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Coin sold in ICO"];\n' +
-                    'icoammount -> c8 [arrowhead=vee,color=white];\n'+
+                    'icoammount -> c8 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c8 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ icoammount + '\"];\n'
             }
             if(resList[0].preamount != undefined){
                 preamount = resList[0].preamount.value
                 dot+= 
-                    'name -> preamount [arrowhead=vee,color=white];\n' +
+                    'name -> preamount [penwidth=3,arrowhead=vee,color=white];\n' +
                     'preamount [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Premined coins"];\n' +
-                    'preamount -> c9 [arrowhead=vee,color=white];\n'+
+                    'preamount -> c9 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c9 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ preamount + '\"];\n'
             }
             if(resList[0].netdif != undefined){
                 netdif = resList[0].netdif.value
                 dot+= 
-                    'name -> netdif [arrowhead=vee,color=white];\n' +
+                    'name -> netdif [penwidth=3,arrowhead=vee,color=white];\n' +
                     'netdif [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Network difficulty"];\n' +
-                    'netdif -> c10 [arrowhead=vee,color=white];\n'+
+                    'netdif -> c10 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c10 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ netdif + '\"];\n'
             }
             if(resList[0].nethash != undefined){
                 nethash = resList[0].nethash.value
                 dot+= 
-                    'name -> nethash [arrowhead=vee,color=white];\n' +
+                    'name -> nethash [penwidth=3,arrowhead=vee,color=white];\n' +
                     'nethash [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Network hashrate"];\n' +
-                    'nethash -> c11 [arrowhead=vee,color=white];\n'+
+                    'nethash -> c11 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c11 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ nethash + '\"];\n'
             }
             if(resList[0].price != undefined){
                 price = resList[0].price.value
                 dot+= 
-                    'name -> price [arrowhead=vee,color=white];\n' +
+                    'name -> price [penwidth=3,arrowhead=vee,color=white];\n' +
                     'price [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Price"];\n' +
-                    'price -> c12 [arrowhead=vee,color=white];\n'+
+                    'price -> c12 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c12 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ price + '\"];\n'
             }
             if(resList[0].whitepaper != undefined){
@@ -229,9 +227,9 @@ router.get('/coin/:did', (req, res, next)=>{
             if(resList[0].tag != undefined){
                 tag = resList[0].tag.value
                 dot+= 
-                    'name -> tag [arrowhead=vee,color=white];\n' +
+                    'name -> tag [penwidth=3,arrowhead=vee,color=white];\n' +
                     'tag [fontname = Helvetica,shape = circle,style = filled,color = powderblue,label="Tag"];\n' +
-                    'tag -> c13 [arrowhead=vee,color=white];\n'+
+                    'tag -> c13 [penwidth=3,arrowhead=vee,color=white];\n'+
                     'c13 [shape = circle,style = filled,color = lightcyan,fontname = Helvetica,label=\"'+ tag + '\"];\n'
             }
             if(resList[0].website != undefined){

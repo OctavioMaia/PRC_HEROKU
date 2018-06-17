@@ -44,7 +44,7 @@ router.get('/', function(req, res, next) {
                     var url = "/nav/coin/" + did
 
                     dot += 'd' + i + '[fontname = Helvetica,shape = doublecircle,style = filled,color = paleturquoise,label="' + did + '",href="' + url + '"];\n'
-                    dot += alg_name + ' -> d' + i + ' [arrowhead=vee,color=white];\n'
+                    dot += alg_name + ' -> d' + i + ' [penwidth=3,arrowhead=vee,color=white];\n'
                 }
                 dot += "}"
                 res.render("alg", {renderingCode: 'd3.select("#graph").graphviz().renderDot(\`' + dot + '\`)'})
